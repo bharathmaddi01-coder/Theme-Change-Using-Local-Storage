@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="input">
+        <button onclick="evalv()">Submit</button>
+        <input type="text" id="input1" placeholder="item to Remove">
+        <button onclick="remov()">Submit</button>
+    </div>
+</body>
+<script>
+   
+    function evalv()
+    {
+        let s=document.getElementById("input").value;
+        localStorage.setItem(s,localStorage.length);
+        alert("Added "+s)
+
+    }
+    function remov()
+    {
+        let s=document.getElementById("input1").value;
+        if(localStorage.getItem(s)!==null)
+        {
+            localStorage.removeItem(s);
+            alert("removed "+s)
+
+        }
+
+    }
+
+</script>
+</html>
