@@ -4,35 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .dark
+        {
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <input type="text" id="input">
-        <button onclick="evalv()">Submit</button>
-        <input type="text" id="input1" placeholder="item to Remove">
-        <button onclick="remov()">Submit</button>
-    </div>
+    <button onClick="toggle()">
+        Click
+    </button>
 </body>
 <script>
-   
-    function evalv()
+    if(localStorage.getItem("theme")==="dark")
     {
-        let s=document.getElementById("input").value;
-        localStorage.setItem(s,localStorage.length);
-        alert("Added "+s)
-
+        toggle(); 
     }
-    function remov()
+    function toggle()
     {
-        let s=document.getElementById("input1").value;
-        if(localStorage.getItem(s)!==null)
-        {
-            localStorage.removeItem(s);
-            alert("removed "+s)
-
-        }
-
+            //ele.classList.toggle("dark"); 
+            document.getElementsByTagName("body")[0].classList.toggle("dark"); 
+            document.getElementsByTagName("body")[0].classList.contains("dark")?localStorage.setItem("theme","dark"):localStorage.setItem("theme","white");
+            
     }
-
 </script>
 </html>
